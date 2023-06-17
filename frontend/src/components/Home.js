@@ -1,5 +1,8 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Routes,Route,Link} from 'react-router-dom'
+import ViewMedia from './ViewMedia'
+import ViewIT from './ViewIT'
+import ViewBranding from './ViewBranding'
 
 function Home() {
   return (
@@ -21,23 +24,18 @@ function Home() {
       <div className="col bg-gradient-to-l from-sky-500 to-indigo-900 rounded-full text-center p-2 grid grid-cols-3 gap-x-2
                     md:col-span-3 md:gap-x-4
                     lg:col-start-2 lg:col-span-2">
-      <button class="col  border border-white text-white hover:bg-white active:bg-white active:text-black hover:text-black py-2  rounded-full">Media</button>
-      <button class="col  border border-white text-white hover:bg-white active:bg-white active:text-black hover:text-black py-2  rounded-full">Branding</button>
-      <button class="col  border border-white text-white hover:bg-white active:bg-white active:text-black hover:text-black py-2  rounded-full">IT</button>
+      <Link to="/Home/view-Media" class="col  border border-white text-white hover:bg-white active:bg-white active:text-black hover:text-black py-2  rounded-full">Media</Link>
+      <Link to="/Home/view-Branding" class="col  border border-white text-white hover:bg-white active:bg-white active:text-black hover:text-black py-2  rounded-full">Branding</Link>
+      <Link to = "/Home/view-IT" class="col  border border-white text-white hover:bg-white active:bg-white active:text-black hover:text-black py-2  rounded-full">IT</Link>
       </div>
-
-
     </div>
 
-    <div className=" grid grid-cols-8">
-      <div className="relative col col-start-1 col-span-8 bg-blue-900 rounded-lg mt-8 text-center h-96
-                    lg:col-span-6 lg:col-start-2">
-                      
-      </div>
-      
-      <Link to="/IT" className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl text-white border-2 border-white rounded-full hover:bg-white hover:text-black py-2 px-5">Visit</Link>
-      
-    </div>
+    <Routes>
+      <Route path="/" element={<ViewMedia/>}/>
+      <Route path="/view-Media" element={<ViewMedia/>}/>
+      <Route path="/view-Branding" element={<ViewBranding/>}/>
+      <Route path="/view-IT" element={<ViewIT/>}/>
+    </Routes>
 
   
 
